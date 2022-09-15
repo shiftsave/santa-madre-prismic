@@ -53,43 +53,38 @@ export const Head = ({ data }) => {
 };
 
 export const homePageQuery = graphql`
-  query HomePageQuery {
-    prismicHomePage {
-      _previewable
-      data {
-        title {
-          richText
-          text
-        }
-        user_image {
-          url
-          alt
-          gatsbyImageData(width: 50, height: 50, placeholder: BLURRED)
-        }
-        description {
-          richText
-          text
+query AboutQuery($locale: String!) {
+  about: prismicAbout(lang: { eq: $locale }) {
+    data {
+      content {
+        html
+        text
+      }
+      highlight {
+        text
+      }
+      images {
+        image {
+          localFile {
+              childImageSharp {
+                fluid(maxWidth: 1200, quality: 90) {
+                  ...GatsbyImageSharpFluid_noBase64
+
+                }
+              }
+          }
+          
         }
       }
-    }
-    allPrismicPost {
-      nodes {
-        url
-        uid
-        data {
-          post_date
-          excerpt
-          title {
-            html
-            text
-          }
-          post_body {
-            html
-          }
-        }
+      subtitle {
+        text
+      }
+      title {
+        text
       }
     }
   }
-`;
+}
+`
 
 export default withPrismicPreview(HomePageTemplate);
