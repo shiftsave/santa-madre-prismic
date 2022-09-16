@@ -16,8 +16,14 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@emotion/core": "^11.0.0",
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
     "@prismicio/react": "^2.4.4",
+    "emotion": "^11.0.0",
+    "framer-motion": "^7.3.5",
     "gatsby": "^4.20.0",
+    "gatsby-plugin-emotion": "^7.23.0",
     "gatsby-plugin-image": "^2.20.0",
     "gatsby-plugin-manifest": "^4.20.0",
     "gatsby-plugin-prismic-previews": "^5.2.8",

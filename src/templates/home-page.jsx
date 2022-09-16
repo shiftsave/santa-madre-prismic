@@ -1,90 +1,126 @@
-import * as React from "react";
-import { Link, graphql } from "gatsby";
+import React from 'react';
+  
+function App() {
+    return ( 
+      <h1> Hello World! </h1>
+    );
+}
+  
+export default App;
 
-import { withPrismicPreview } from "gatsby-plugin-prismic-previews";
-import Layout from "../components/layout";
-import Seo from "../components/seo";
-import Bio from "../components/bio";
 
-const HomePageTemplate = ({ data, location }) => {
-  const {
-    title,
-    description,
-    user_image: userImage,
-  } = data?.prismicHomePage?.data || {};
+/*
+import React from "react";
+import PropTypes from "prop-types";
+import { graphql } from "gatsby";
+import { Hero, SliceZone, TransitionHelper } from "../components";
+import { LocaleContext } from "../components/Layout";
+import SEO from "../components/SEO";
 
-  const blogList = data?.allPrismicPost?.nodes || [];
+const Index = ({
+  data: { homepage },
+  pageContext: { locale },
+  location
+}) => {
+  const lang = React.useContext(LocaleContext);
+  const i18n = lang.i18n[lang.locale];
+  const { data } = homepage;
 
   return (
-    <Layout location={location} title={title.text}>
-      <Bio image={userImage} description={description.richText} />
-      <ol style={{ listStyle: `none` }}>
-        {blogList.map((post) => {
-          const title = post.data.title.text;
-
-          return (
-            <li key={post.uid}>
-              <article
-                className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <header>
-                  <h2>
-                    <Link to={post.url} itemProp="url">
-                      <span itemProp="headline">{title}</span>
-                    </Link>
-                  </h2>
-                  <small>{post.data.post_date}</small>
-                  <p>{post.data.excerpt}</p>
-                </header>
-              </article>
-            </li>
-          );
-        })}
-      </ol>
-    </Layout>
+    <>
+      <TransitionHelper />
+      <SEO pathname={location.pathname} locale={locale} />
+      <Hero
+        heading={homepage.data.title.text}
+        subheading={homepage.data.subtitle.text}
+        multiline
+      />
+      <SliceZone allSlices={data.body} />
+    </>
   );
 };
 
-export const Head = ({ data }) => {
-  const { title, description } = data?.prismicHomePage?.data || {};
-  return <Seo title={title.text} description={description.text} />;
+export default Index;
+
+Index.propTypes = {
+  data: PropTypes.shape({
+    posts: PropTypes.object.isRequired,
+    homepage: PropTypes.object.isRequired
+  }).isRequired,
+  pageContext: PropTypes.shape({
+    locale: PropTypes.string.isRequired
+  }).isRequired,
+  location: PropTypes.object.isRequired
 };
 
-export const homePageQuery = graphql`
-query AboutQuery($locale: String!) {
-  about: prismicAbout(lang: { eq: $locale }) {
-    data {
-      content {
-        html
-        text
-      }
-      highlight {
-        text
-      }
-      images {
-        image {
-          localFile {
-              childImageSharp {
-                fluid(maxWidth: 1200, quality: 90) {
-                  ...GatsbyImageSharpFluid_noBase64
-
+export const pageQuery = graphql`
+  query IndexQuery($locale: String!) {
+    homepage: prismicHomepage(lang: { eq: $locale }) {
+      data {
+        title {
+          text
+        }
+        subtitle {
+          text
+        }
+        body {
+          ... on PrismicHomepageBodyHomepageBlock {
+            slice_type
+            id
+            primary {
+              block_variant
+              block_title {
+                text
+              }
+              block_content {
+                html
+                text
+              }
+              link {
+                text
+              }
+              link_desc {
+                text
+              }
+              block_image {
+                localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 1200, quality: 90) {
+                      ...GatsbyImageSharpFluid_noBase64
+                    }
+                  }
                 }
               }
+            }
           }
-          
         }
       }
-      subtitle {
-        text
-      }
-      title {
-        text
+    }
+    posts: allPrismicPost(
+      sort: { fields: [data___date], order: DESC }
+      filter: { lang: { eq: $locale } }
+    ) {
+      edges {
+        node {
+          uid
+          data {
+            title {
+              text
+            }
+            date(formatString: "DD.MM.YYYY")
+            categories {
+              category {
+                document {
+                  data {
+                    name
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
-}
-`
-
-export default withPrismicPreview(HomePageTemplate);
+`;
+*/
