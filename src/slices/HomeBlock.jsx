@@ -35,6 +35,7 @@ const Container = styled.div`
 
 const Content = styled.div`
   height: max-content;
+  font-family:
   width: 100%;
   padding: 8px;
 
@@ -63,6 +64,16 @@ const Image = styled.div`
   right: ${props => props.variant == "left" && "0"};
   width: 100%;
 
+  img {
+    width: 100%;
+    height: auto;
+
+    ${Above[1]} {
+      height: 100%;
+      width: auto;
+    }
+  }
+
   ${Above[1]} {
     position: absolute;
     width: 40%;
@@ -70,7 +81,7 @@ const Image = styled.div`
 `;
 
 const HomeBlock = ({ input }) => (
-  <SlideUp delay={.2}>
+  <SlideUp delay={.3}>
     <Container
       position={input.primary.block_variant}
     >
@@ -83,7 +94,7 @@ const HomeBlock = ({ input }) => (
       <Link to={input.primary.link.text}>{input.primary.link_desc.text}</Link>
     </Content>
     <Image variant={input.primary.block_variant}>
-      <Img fluid={input.primary.block_image.localFile.childImageSharp.fluid} />
+      <img src={input.primary.block_image.url} />
     </Image>
   </Container>
   </SlideUp>

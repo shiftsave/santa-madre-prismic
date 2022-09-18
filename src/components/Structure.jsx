@@ -1,5 +1,6 @@
 import React from "react";
-import { Global, css } from "@emotion/core";
+import { Global, css } from "@emotion/react";
+import { useLocation } from '@reach/router';
 import styled from "@emotion/styled";
 import { COLOR } from "../constants";
 import { Above } from "../utils/mq";
@@ -34,12 +35,14 @@ export const Divider = styled.div`
   }
 `
 
-export const Wrapper = ({ children, location }) => {
+export const Wrapper = ({ children }) => {
   // Find the current section and match to sub-sections
+  const loc = useLocation();
+  console.log(loc.pathname)
   
   const findTerm = (term) => {
-    if (location.pathname.includes(term)){
-      return location.pathname;
+    if (loc.pathname.includes(term)){
+      return loc.pathname;
     }
   };
   function backgroundColor(section) {
@@ -73,9 +76,9 @@ export const Wrapper = ({ children, location }) => {
         body {
           -moz-osx-font-smoothing: grayscale;
           -webkit-font-smoothing: antialiased;
-          background-color: ${backgroundColor(location.pathname)};
+          background-color: ${backgroundColor(loc.pathname)};
           color: black;
-          font-family: "Maison", sans-serif;
+          font-family: "Romana", sans-serif;
           font-weight: normal;
         }
 

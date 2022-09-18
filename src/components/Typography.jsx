@@ -49,6 +49,7 @@ export const Paragraph = styled.div`
   font-size: ${props => props.sm && "13px"};
   font-size: ${props => props.lg && "17px"};
   line-height: 1.8;
+  font-family: "Maison", sans-serif;
   margin-bottom: 8px;
   text-align: ${props => props.center && "center"};
 

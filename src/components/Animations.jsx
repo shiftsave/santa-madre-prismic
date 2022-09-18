@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
-import {COLOR} from "../constants"
 
 const Container = styled(motion.div)`
   opacity: 0;
@@ -12,8 +11,8 @@ export const TransitionHelper = () =>
     animate={{ x: "100%" }}
     transition={{
       type: 'spring',
-      stiffness: 80,
-      damping: 900
+      stiffness: 16,
+      damping: 40
     }}
    />
 
@@ -22,8 +21,8 @@ export const SlideUp = ({children, delay}) =>
     animate={{ y: -50, opacity: 1 }}
     transition={{
       type: 'spring',
-      stiffness: 80,
-      damping: 1200,
+      stiffness: 16,
+      damping: 4,
       delay: delay
     }}
   >

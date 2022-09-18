@@ -1,8 +1,4 @@
 import React, {useState, useEffect} from "react";
-import { globalHistory as history } from '@reach/router'
-import "@reach/skip-nav/styles.css";
-import SkipNavLink from "./SkipNavLink";
-import i18n from "../../config/i18n";
 import {
   Wrapper,
   Paragraph,
@@ -53,10 +49,7 @@ function useWindowSize() {
   return windowSize;
 }
 
-const LocaleContext = React.createContext();
-
-const Layout = ({ children, pageContext: { locale } }) => {
-  const { location } = history;
+const Layout = ({ children }) => {
 
   // Toggles Menu
   const [isMenuOpen, setToggle] = useState(false)
@@ -66,9 +59,7 @@ const Layout = ({ children, pageContext: { locale } }) => {
   let windowWidth = useWindowSize().width;
   
   return (
-    <LocaleContext.Provider value={{ locale, i18n }}>
-      <Wrapper location={location}>
-        <SkipNavLink />
+      <Wrapper>
         <Navigation transition={EASING.QUINT} animate={{ y: 144, opacity: 1 }}>
           <NavItem>
             <Icon name='menu' onClick={()=> toggleMenu()} />
@@ -82,10 +73,10 @@ const Layout = ({ children, pageContext: { locale } }) => {
         </Navigation>
         
         {/* Side Menu */}
-        <NavMenu animate={{ x: isMenuOpen ? 360 : 0 }}>
+        {/*<NavMenu animate={{ x: isMenuOpen ? 360 : 0 }}>
           <NavMenuGroup grow={2} />
           <NavMenuGroup grow={4}>
-            <Paragraph>{i18n[locale].destilados}</Paragraph>
+            <Paragraph>destilados</Paragraph>
             <Link to="/destilados/nahum" onClick={()=> toggleMenu()}>Nahúm</Link>
             <Link to="/destilados/odisea-mixteca" onClick={()=> toggleMenu()}>Odisea Mixteca</Link>
             <Link to="/destilados/espina-roja" onClick={()=> toggleMenu()}>Espina Roja</Link>
@@ -96,17 +87,16 @@ const Layout = ({ children, pageContext: { locale } }) => {
                 <Link to="/" onClick={()=> toggleMenu()}>Home</Link>
                 <Link to="/about" onClick={()=> toggleMenu()}>About us</Link>
                 <Link to="/destilados" onClick={()=> toggleMenu()}>Distillates</Link>
-                {/* <Link to="/cocktails" onClick={()=> toggleMenu()}>Cocktails</Link> */}
+                <Link to="/cocktails" onClick={()=> toggleMenu()}>Cocktails</Link>
               </NavMenuGroup>
             {/* <NavMenuGroup tertiary>
               <a href="https://instagram.com/esmatrero" target="_blank">INSTAGRAM</a>
-            </NavMenuGroup> */}
+            </NavMenuGroup>
           </NavMenuGroup>
-        </NavMenu>
+        </NavMenu>*/}
         {children}
       </Wrapper>
-    </LocaleContext.Provider>
   );
 };
 
-export { LocaleContext, Layout };
+export { Layout };

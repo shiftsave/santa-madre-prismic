@@ -1,11 +1,11 @@
 export const QUINT = {
   type: "spring",
-  damping: 80,
-  stiffness: 100
+  stiffness: 14,
+  damping: 5
 };
 
 export const BLACKOUT = {
   type: "spring",
-  damping: 40,
-  stiffness: 200
+  damping: 16,
+  stiffness: 40
 };

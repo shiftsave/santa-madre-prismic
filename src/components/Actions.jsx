@@ -1,7 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { LocaleContext } from './Layout'
-import locales from '../../config/i18n'
 
 import { Link as GatsbyLink } from 'gatsby'
 import styled from "@emotion/styled";
@@ -43,9 +41,8 @@ export const NakedButton = styled.button`
 `;
 
 export const Link = ({ to, ...props }) => {
-  const { locale } = React.useContext(LocaleContext)
   const isIndex = to === '/'
-  const path = locales[locale].default ? to : `/${locales[locale].path}${isIndex ? '' : `${to}`}`
+  const path = `${to}`
   return <BaseLink {...props} to={path} />
 }
 

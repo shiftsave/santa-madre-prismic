@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
-import {COLOR} from "../constants"
+import { COLOR } from "../constants"
 
 const Container = styled(motion.div)`
   background: ${COLOR.PAPER};
@@ -16,10 +16,10 @@ const Container = styled(motion.div)`
 
 export const TransitionHelper = () =>
   <Container 
-    animate={{ x: "100%" }}
+    animate={{ x:"100%" }}
     transition={{
       type: 'spring',
-      stiffness: 80,
-      damping: 900
+      stiffness: 400,
+      damping: 60
     }}
    />

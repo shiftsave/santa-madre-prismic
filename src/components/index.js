@@ -3,6 +3,7 @@ import {Link, Button, NakedButton} from "./Actions"
 import Footer from "./Footer";
 import { PricingBreakdown } from "./Graphs"
 import Icon from "./Icon";
+import { Layout } from "./Layout";
 import { Listing, ListItem } from "./Listing";
 import {
   Navigation,
@@ -38,6 +39,9 @@ export {
   
   // Icon
   Icon,
+
+  // Layout
+  Layout,
 
   // Listing
   Listing,

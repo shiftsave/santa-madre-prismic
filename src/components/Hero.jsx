@@ -7,7 +7,7 @@ import { Heading, Paragraph, Blackout, BlackoutArea } from "../components"
 
 const Container = styled(motion.div)`
   margin: 0 auto;
-  margin-bottom: 80px;
+  margin-bottom: 10px;
   margin-top: 180px;
   max-width: 940px;
   text-align: center;
@@ -15,12 +15,12 @@ const Container = styled(motion.div)`
   position: relative;
 
   ${Above[0]} {
-    margin-bottom: 120px;
+    margin-bottom: 10px;
     margin-top: 240px;
   
 
   ${Above[1]} {
-    margin-bottom: 120px;
+    margin-bottom: 10px;
   }
   
 `;
