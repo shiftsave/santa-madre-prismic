@@ -78,7 +78,7 @@ export const Wrapper = ({ children }) => {
           -webkit-font-smoothing: antialiased;
           background-color: ${backgroundColor(loc.pathname)};
           color: black;
-          font-family: "Romana", sans-serif;
+          font-family: "Maison", serif;
           font-weight: normal;
         }
 

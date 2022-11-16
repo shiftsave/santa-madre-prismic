@@ -4,7 +4,6 @@ import { graphql } from "gatsby";
 import { kebabCase } from "lodash";
 import website from "../../config/website";
 import { Layout } from "../components";
-import SEO from "../components/SEO";
 
 import { 
   Container,
@@ -28,7 +27,6 @@ const Product = ({ data: { products, destilados } }) => {
         <Container stacked id={website.skipNavId}>
           <Listing>
           {products.edges.map((p, index) => {
-            {console.log(p)}
             return (
               <React.Fragment key={p.node.data.agave__common}>
                 <ListItem

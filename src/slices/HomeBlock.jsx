@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Img from "gatsby-image";
 import styled from "@emotion/styled";
 import { Link, Subheading, Paragraph, SlideUp } from "../components";
 import { Above } from "../utils/mq";
+import Image from "./Image"
 
 const Container = styled.div`
   align-items: center;
@@ -22,7 +22,7 @@ const Container = styled.div`
   }
 
   ${Above[1]} {
-    flex-direction: ${props => props.position == "right" ? "row-reverse" : "row"};
+    flex-direction: ${props => props.position === "right" ? "row-reverse" : "row"};
     height: 400px;
     margin-top: 240px;
     padding: 16px;
@@ -51,17 +51,17 @@ const Content = styled.div`
 
   ${Above[2]} {
     padding: 24px;
-    padding-left: ${props => props.position == "left" && "80px"};
-    padding-right: ${props => props.position == "right" && "80px"};
+    padding-left: ${props => props.position === "left" && "80px"};
+    padding-right: ${props => props.position === "right" && "80px"};
   }
 `;
 
-const Image = styled.div`
+const ImageContainer = styled.div`
   height: 100%;
-  left: ${props => props.variant == "right" && "0"};
+  left: ${props => props.variant === "right" && "0"};
   overflow: hidden;
   position: relative;
-  right: ${props => props.variant == "left" && "0"};
+  right: ${props => props.variant === "left" && "0"};
   width: 100%;
 
   img {
@@ -93,9 +93,9 @@ const HomeBlock = ({ input }) => (
       </Paragraph>
       <Link to={input.primary.link.text}>{input.primary.link_desc.text}</Link>
     </Content>
-    <Image variant={input.primary.block_variant}>
-      <img src={input.primary.block_image.url} />
-    </Image>
+    <ImageContainer variant={input.primary.block_variant}>
+      <Image image={input.primary.block_image} alt="" />
+    </ImageContainer>
   </Container>
   </SlideUp>
 );

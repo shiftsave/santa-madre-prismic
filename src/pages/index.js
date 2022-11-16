@@ -66,13 +66,10 @@ export const pageQuery = graphql`
                     alt
                     copyright
                     url
-                    localFile {
-                        childImageSharp {
-                            fluid(maxWidth: 1200) {
-                            ...GatsbyImageSharpFluid_noBase64
-                            }
-                        }
-                    }
+                    gatsbyImageData (
+                      width: 1600
+                      placeholder: BLURRED
+                    )
                 }
               }
             }

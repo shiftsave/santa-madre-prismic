@@ -39,6 +39,10 @@ module.exports = {
         accessToken: process.env.PRISMIC_ACCESS_TOKEN,
         customTypesApiToken: process.env.PRISMIC_CUSTOM_TYPES_API_TOKEN,
         linkResolver: (doc) => linkResolver(doc),
+        shouldDownloadFiles: {
+          // Download a Page `photo` image:
+          'page.data.photo': true,
+        }
       },
     },
     {

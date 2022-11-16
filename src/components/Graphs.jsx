@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
-import { Above } from "../utils/mq"
 import { COLOR } from "../constants";
 import { Paragraph } from "."
 

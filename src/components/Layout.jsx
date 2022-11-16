@@ -33,7 +33,7 @@ function useWindowSize() {
 
   const [windowSize, setWindowSize] = useState(getSize);
 
-  useEffect(() => {
+  useEffect((isClient) => {
     if (!isClient) {
       return false;
     }
@@ -73,13 +73,14 @@ const Layout = ({ children }) => {
         </Navigation>
         
         {/* Side Menu */}
-        {/*<NavMenu animate={{ x: isMenuOpen ? 360 : 0 }}>
+        <NavMenu animate={{ x: isMenuOpen ? 360 : 0, opacity: isMenuOpen ? 1 : 0 }}>
           <NavMenuGroup grow={2} />
           <NavMenuGroup grow={4}>
-            <Paragraph>destilados</Paragraph>
-            <Link to="/destilados/nahum" onClick={()=> toggleMenu()}>Nahúm</Link>
-            <Link to="/destilados/odisea-mixteca" onClick={()=> toggleMenu()}>Odisea Mixteca</Link>
+            <Paragraph>Our distillates</Paragraph>
+            <Link to="/destilados/28" onClick={()=> toggleMenu()}>28</Link>
+            <Link to="/destilados/altiva" onClick={()=> toggleMenu()}>Altiva</Link>
             <Link to="/destilados/espina-roja" onClick={()=> toggleMenu()}>Espina Roja</Link>
+            <Link to="/destilados/odisea-mixteca" onClick={()=> toggleMenu()}>Odisea Mixteca</Link>
             <Link to="/destilados/la-palenquerita" onClick={()=> toggleMenu()}>La Palenquerita</Link>
           </NavMenuGroup>
           <NavMenuGroup row>
@@ -89,11 +90,11 @@ const Layout = ({ children }) => {
                 <Link to="/destilados" onClick={()=> toggleMenu()}>Distillates</Link>
                 <Link to="/cocktails" onClick={()=> toggleMenu()}>Cocktails</Link>
               </NavMenuGroup>
-            {/* <NavMenuGroup tertiary>
-              <a href="https://instagram.com/esmatrero" target="_blank">INSTAGRAM</a>
+            <NavMenuGroup tertiary>
+              <a href="https://instagram.com/esmatrero" target="_blank" rel="noreferrer" >INSTAGRAM</a>
             </NavMenuGroup>
           </NavMenuGroup>
-        </NavMenu>*/}
+        </NavMenu>
         {children}
       </Wrapper>
   );

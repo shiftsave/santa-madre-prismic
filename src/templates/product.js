@@ -2,10 +2,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
-import Img from "gatsby-image";
+import { getImage, GatsbyImage } from "gatsby-plugin-image";
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
-import { Layout, Heading, Paragraph, Button, TransitionHelper, SlideUp } from "../components";
+import { Layout, Heading, Paragraph, Button, TransitionHelper } from "../components";
 import { COLOR } from "../constants";
 import { Above } from "../utils/mq"
 
@@ -22,7 +22,7 @@ const Container = styled.div`
 `
 
 const Content = styled.div`
-  height: 100vh;
+  max-height: 100vh;
   padding: 48px;
   padding-top: 160px;
   width: 100%;
@@ -42,9 +42,11 @@ const ImageArea = styled.div`
   }
 `
 
-const Image = styled(Img)`
+const Image = styled(GatsbyImage)`
   width: 100%;
   height: 100%;
+  object-fit: cover;
+
   `
   
 const Table = styled.div`
@@ -81,30 +83,31 @@ const Checkout = styled(motion.div)`
   z-index: 1;
 
   ${Above[1]} {
-    width: 50%;
+    width: 100%;
   }
 `
 
-const CheckoutContent = styled.div`
-  width: "100%"
-`
+// const CheckoutContent = styled.div`
+//   width: "100%"
+// `
 
-const CheckoutPrice = styled.p`
-  display: inline-block;
-  font-size: 28px;
-  line-height: 1;
-  margin: 0;
+// const CheckoutPrice = styled.p`
+//   display: inline-block;
+//   font-size: 28px;
+//   line-height: 1;
+//   margin: 0;
 
-  &:first-letter {
-    font-size: 18px;
-  }]
-`
+//   &:first-letter {
+//     font-size: 18px;
+//   }]
+// `
 
 
   
 
 const Product = ({ data: { prismicProducts }}) => {
   const { data } = prismicProducts;
+  const image = getImage(data.photo)
 
   return (
     <Layout>
@@ -146,16 +149,16 @@ const Product = ({ data: { prismicProducts }}) => {
               </Row>
             </Table>
             <Checkout animate={{y: "-100%"}} transition={{delay: 0.25}}>
-              <CheckoutContent>
+              {/* <CheckoutContent>
                   <CheckoutPrice>$120</CheckoutPrice>
-                <Paragraph>21/${data.total_bottles} bottles </Paragraph>
-              </CheckoutContent>
-              <Button disabled >Coming Soon</Button>
+                <Paragraph>{data.total_bottles} bottles </Paragraph>
+              </CheckoutContent> */}
+              <Button disabled href="tel:+64210723537" >Contact us for pricing details</Button>
             </Checkout>
         </Content>
         <ImageArea>
-            
-            </ImageArea>
+          <Image image={image} alt="" />
+        </ImageArea>
       </Container>
     </Layout>
   );
@@ -167,10 +170,7 @@ Product.propTypes = {
   data: PropTypes.shape({
     prismicProducts: PropTypes.object.isRequired
   }).isRequired,
-  location: PropTypes.object.isRequired,
-  pageContext: PropTypes.shape({
-    locale: PropTypes.string.isRequired
-  }).isRequired
+  location: PropTypes.object.isRequired
 };
 
 // The typenames come from the slice names
@@ -179,7 +179,6 @@ Product.propTypes = {
 export const pageQuery = graphql`
 query ProductPost($uid: String!) {
     prismicProducts(uid: { eq: $uid }) {
-      uid
       uid
       data {
         brand
@@ -201,13 +200,10 @@ query ProductPost($uid: String!) {
           text
         }
         photo {
-          localFile {
-            childImageSharp {
-              fluid(maxWidth: 1200, quality: 90) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
-            }
-          }
+          gatsbyImageData (
+            width: 1600
+            placeholder: BLURRED
+          )
         }
       }
     }

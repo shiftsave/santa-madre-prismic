@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Img from "gatsby-image";
+import { getImage, GatsbyImage } from "gatsby-plugin-image";
 
-const Image = ({ input }) => (
+
+const Image = ({ image }) => (
   <div className="image">
-    <Img fluid={input.primary.image.localFile.childImageSharp.fluid} />
+    <GatsbyImage image={getImage(image)} alt="" />
   </div>
 );
 

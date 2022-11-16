@@ -41,7 +41,6 @@ export const NakedButton = styled.button`
 `;
 
 export const Link = ({ to, ...props }) => {
-  const isIndex = to === '/'
   const path = `${to}`
   return <BaseLink {...props} to={path} />
 }
