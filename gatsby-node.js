@@ -6,7 +6,7 @@ const {  wrapper } = require("./src/utils/gatsby-node-helpers");
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  const cocktailTemplate = path.resolve("./src/templates/cocktail.js");
+  // const cocktailTemplate = path.resolve("./src/templates/cocktail.js");
   const productTemplate = path.resolve("./src/templates/product.js");
 
   const result = await wrapper(
@@ -44,7 +44,7 @@ exports.createPages = async ({ graphql, actions }) => {
     `)
   );
 
-  const cocktailsList = result.data.cocktails.edges;
+  // const cocktailsList = result.data.cocktails.edges;
   const productsList = result.data.products.edges;
 
   productsList.forEach(p => {
@@ -61,18 +61,18 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
-  cocktailsList.forEach(p => {
-    const cocktail = p.node.uid;
-    const cocktailPath = `/cocktails/${_.kebabCase(cocktail)}`;
+  // cocktailsList.forEach(p => {
+  //   const cocktail = p.node.uid;
+  //   const cocktailPath = `/cocktails/${_.kebabCase(cocktail)}`;
 
-    createPage({
-      path:cocktailPath,
-      component: cocktailTemplate,
-      context: {
-        // Pass the unique ID (uid) through context so the template can filter by it
-        uid: p.node.uid,
-      }
-    });
-  });
+  //   createPage({
+  //     path:cocktailPath,
+  //     component: cocktailTemplate,
+  //     context: {
+  //       // Pass the unique ID (uid) through context so the template can filter by it
+  //       uid: p.node.uid,
+  //     }
+  //   });
+  // });
 
 };
