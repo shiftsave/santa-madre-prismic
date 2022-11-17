@@ -43,6 +43,10 @@ const Content = styled.div`
     margin-bottom: 12px;
   }
 
+  a {
+    font-family: "Maison";
+  }
+
   ${Above[1]} {
     width: 50%;
     padding: 16px;

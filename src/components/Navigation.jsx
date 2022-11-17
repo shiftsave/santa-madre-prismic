@@ -71,7 +71,8 @@ export const NavMenuGroup = styled.div`
     font-size: ${props => props.secondary ? "16px" : "27px"};
     font-size: ${props => props.tertiary && "12px"};
     padding-top: 4px;
-    text-decoration: none;
+    font-family: "Maison";
+    text-decoration: underline;
   }
 `;
 

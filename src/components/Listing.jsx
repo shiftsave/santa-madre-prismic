@@ -15,6 +15,7 @@ const Subtext = styled.div`
   right: 0;
   top: -12px;
   text-transform: uppercase;
+  font-family: "Maison";
 
   ${Above[1]} {
     font-size: 12px;
@@ -27,6 +28,7 @@ const ListItemLink = styled(Link)`
   display: block;
   line-height: 1.2;
   font-size: 24px;
+  font-family: "Romana";
   text-transform: capitalize;
   text-decoration: none;
   transition: 0ms 100ms ease;

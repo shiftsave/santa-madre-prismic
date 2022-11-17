@@ -58,6 +58,7 @@ const Row = styled.div`
   border-bottom: ${props => props.fixed ? "none" : `1px solid ${COLOR.SLATE}`};
   bottom: 0;
   display: inline-flex;
+  font-family: "Maison", sans-serif;
   left: 0;
   position: ${props => props.fixed && "absolute"};
   width: 100%;
@@ -75,6 +76,7 @@ const Checkout = styled(motion.div)`
   background: ${COLOR.PAPER};
   top: 100%;
   display: inline-flex;
+  font-family: "Maison", sans-serif;
   left: 0;
   padding: 16px;
   position: fixed;
