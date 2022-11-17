@@ -91,7 +91,7 @@ const HomeBlock = ({ input }) => (
       <Paragraph>
         {input.primary.block_content.text}
       </Paragraph>
-      {/* <Link to={input.primary.link.text}>{input.primary.link_desc.text}</Link> */}
+      <Link to={input.primary.link.text}>{input.primary.link_desc.text}</Link>
     </Content>
     <ImageContainer variant={input.primary.block_variant}>
       <Image image={input.primary.block_image} alt="" />
