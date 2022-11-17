@@ -60,9 +60,9 @@ const Layout = ({ children }) => {
   
   return (
       <Wrapper>
-        {/* <Navigation transition={EASING.QUINT} animate={{ y: 144, opacity: 1 }}>
+        <Navigation transition={EASING.QUINT} animate={{ y: 144, opacity: 1 }}>
           <NavItem>
-            <Icon name='menu' onClick={()=> toggleMenu()} />
+            {/* <Icon name='menu' onClick={()=> toggleMenu()} /> */}
           </NavItem>
           {windowWidth <= 620 
             ? <Icon name='logo-badge' to="/" />
@@ -70,10 +70,10 @@ const Layout = ({ children }) => {
           }
           <NavItem>
           </NavItem>
-        </Navigation> */}
+        </Navigation>
         
         {/* Side Menu */}
-        <NavMenu animate={{ x: isMenuOpen ? 360 : 0, opacity: isMenuOpen ? 1 : 0 }}>
+        {/* <NavMenu animate={{ x: isMenuOpen ? 360 : 0, opacity: isMenuOpen ? 1 : 0 }}>
           <NavMenuGroup grow={2} />
           <NavMenuGroup grow={4}>
             <Paragraph>Our distillates</Paragraph>
@@ -94,7 +94,7 @@ const Layout = ({ children }) => {
               <a href="https://instagram.com/esmatrero" target="_blank" rel="noreferrer" >INSTAGRAM</a>
             </NavMenuGroup>
           </NavMenuGroup>
-        </NavMenu>
+        </NavMenu> */}
         {children}
       </Wrapper>
   );
