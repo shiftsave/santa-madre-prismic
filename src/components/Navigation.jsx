@@ -62,7 +62,7 @@ export const NavMenuGroup = styled.div`
   align-items: ${props => props.tertiary ? "flex-end" : "flex-start"};
   display: flex;
   flex-direction: ${props => props.row ? "row" : "column"};
-  flex-grow: ${props => props.grow ? props.grow : 0};
+  flex-grow: ${props => props.grow ? props.grow : 1};
   padding: 0;
   width: 100%;
   margin: 0 auto;

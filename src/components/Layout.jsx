@@ -16,6 +16,7 @@ import { datadogRum } from '@datadog/browser-rum'
 datadogRum.init({
   applicationId: 'b6e182ba-aa9c-4593-8a76-95b0e0bdc3a0',
   clientToken: 'pub2e6abf63e397fb2fb561e69163614efa',
+  site: 'datadoghq.com',
   datacenter: 'us',
   resourceSampleRate: 100,
   sampleRate: 100
@@ -62,7 +63,7 @@ const Layout = ({ children }) => {
       <Wrapper>
         <Navigation transition={EASING.QUINT} animate={{ y: 144, opacity: 1 }}>
           <NavItem>
-            {/* <Icon name='menu' onClick={()=> toggleMenu()} /> */}
+            <Icon name='menu' onClick={()=> toggleMenu()} />
           </NavItem>
           {windowWidth <= 620 
             ? <Icon name='logo-badge' to="/" />
@@ -73,7 +74,7 @@ const Layout = ({ children }) => {
         </Navigation>
         
         {/* Side Menu */}
-        {/* <NavMenu animate={{ x: isMenuOpen ? 360 : 0, opacity: isMenuOpen ? 1 : 0 }}>
+        <NavMenu animate={{ x: isMenuOpen ? 360 : 0, opacity: isMenuOpen ? 1 : 0 }}>
           <NavMenuGroup grow={2} />
           <NavMenuGroup grow={4}>
             <Paragraph>Our distillates</Paragraph>
@@ -88,13 +89,12 @@ const Layout = ({ children }) => {
                 <Link to="/" onClick={()=> toggleMenu()}>Home</Link>
                 <Link to="/about" onClick={()=> toggleMenu()}>About us</Link>
                 <Link to="/destilados" onClick={()=> toggleMenu()}>Distillates</Link>
-                <Link to="/cocktails" onClick={()=> toggleMenu()}>Cocktails</Link>
               </NavMenuGroup>
             <NavMenuGroup tertiary>
-              <a href="https://instagram.com/esmatrero" target="_blank" rel="noreferrer" >INSTAGRAM</a>
+              <a href="https://instagram.com/santamadre_nz" target="_blank" rel="noreferrer" >INSTAGRAM</a>
             </NavMenuGroup>
           </NavMenuGroup>
-        </NavMenu> */}
+        </NavMenu>
         {children}
       </Wrapper>
   );

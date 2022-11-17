@@ -59,11 +59,6 @@ const About = ({
       <Container stacked>
         <Paragraph inset dangerouslySetInnerHTML={{ __html: about.data.content.html }} />
       </Container>
-      <Container stacked>
-        <Subheading center>
-          {about.data.highlight.text}
-        </Subheading>
-      </Container>
     </Layout>
   );
 };
