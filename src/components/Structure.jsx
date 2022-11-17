@@ -80,6 +80,7 @@ export const Wrapper = ({ children }) => {
           color: black;
           font-family: "Maison", serif;
           font-weight: normal;
+          font-display: block;
         }
 
         a {
