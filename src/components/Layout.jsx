@@ -60,7 +60,7 @@ const Layout = ({ children }) => {
   
   return (
       <Wrapper>
-        <Navigation transition={EASING.QUINT} animate={{ y: 144, opacity: 1 }}>
+        {/* <Navigation transition={EASING.QUINT} animate={{ y: 144, opacity: 1 }}>
           <NavItem>
             <Icon name='menu' onClick={()=> toggleMenu()} />
           </NavItem>
@@ -70,7 +70,7 @@ const Layout = ({ children }) => {
           }
           <NavItem>
           </NavItem>
-        </Navigation>
+        </Navigation> */}
         
         {/* Side Menu */}
         <NavMenu animate={{ x: isMenuOpen ? 360 : 0, opacity: isMenuOpen ? 1 : 0 }}>
